@@ -17,3 +17,10 @@ make exercises
 
 
 introduce datasets in beginning
+
+
+1) select datasets
+2) outline "from scratch" parts
+3) make sure everything is somewhat aligned, use other datasets
+4) flesh out from scratch parts
+5) exercises
