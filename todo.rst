@@ -14,3 +14,6 @@ More neural networks
 
 approximate timing
 make exercises
+
+
+introduce datasets in beginning
