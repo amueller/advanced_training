@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 
 def plot_label_kfold():
-    from sklearn.cross_validation import LabelKFold
+    from sklearn.model_selection import LabelKFold
     labels = [0, 0, 0, 1, 1, 1, 1, 2, 2, 3, 3, 3]
 
     plt.figure(figsize=(10, 2))
@@ -17,9 +17,9 @@ def plot_label_kfold():
     n_iter = 3
     n_samples_per_fold = 1
 
-    cv = LabelKFold(n_samples, n_folds=3, labels=labels)
+    cv = LabelKFold(n_folds=3)
     mask = np.zeros((n_iter, n_samples))
-    for i, (train, test) in enumerate(cv):
+    for i, (train, test) in enumerate(cv.split(range(12), labels=labels)):
         mask[i, train] = 1
         mask[i, test] = 2
 
@@ -53,7 +53,7 @@ def plot_label_kfold():
 
 
 def plot_shuffle_split():
-    from sklearn.cross_validation import ShuffleSplit
+    from sklearn.model_selection import ShuffleSplit
     plt.figure(figsize=(10, 2))
     plt.title("ShuffleSplit with 10 points, train_size=5, test_size=2, n_iter=4")
 
