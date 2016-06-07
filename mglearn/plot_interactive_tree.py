@@ -8,6 +8,7 @@ from sklearn.tree import export_graphviz
 from scipy.misc import imread
 from scipy import ndimage
 from sklearn.datasets import make_moons
+from .plot_helpers import cm2
 
 import re
 
@@ -49,7 +50,7 @@ def plot_tree_progressive():
     X, y = make_moons(noise=0.3, random_state=0)
 
 
-def plot_tree_partition(X, y, tree, ax=None):
+def plot_tree_partition(X, y, tree, ax=None, cm=cm2):
     if ax is None:
         ax = plt.gca()
     eps = X.std() / 2.
@@ -67,10 +68,10 @@ def plot_tree_partition(X, y, tree, ax=None):
     faces = tree.apply(X_grid)
     faces = faces.reshape(X1.shape)
     border = ndimage.laplace(faces) != 0
-    ax.contourf(X1, X2, Z, alpha=.4, colors=['red', 'blue'], levels=[0, .5, 1])
+    ax.contourf(X1, X2, Z, alpha=.4, levels=[0, .5, 1], cmap=cm)
     ax.scatter(X1[border], X2[border], marker='.', s=1)
 
-    ax.scatter(X[:, 0], X[:, 1], c=np.array(['r', 'b'])[y], s=60)
+    ax.scatter(X[:, 0], X[:, 1], c=y, s=60, cmap=cm)
     ax.set_xlim(x_min, x_max)
     ax.set_ylim(y_min, y_max)
     ax.set_xticks(())

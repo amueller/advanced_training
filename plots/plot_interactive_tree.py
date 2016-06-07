@@ -9,33 +9,36 @@ from sklearn.tree import export_graphviz
 from scipy.misc import imread
 from scipy import ndimage
 import os
+import re
 
 GRAPHVIS_PATH = r"C:\Program Files (x86)\Graphviz2.38\bin"
 if GRAPHVIS_PATH not in os.environ['PATH']:
     os.environ['PATH'] += ";" + GRAPHVIS_PATH
-
-import re
 
 X, y = make_blobs(centers=[[0, 0], [1, 1]], random_state=61526, n_samples=50)
 
 
 def tree_image(tree, fout=None):
     try:
-        import pydot
-        import a_reliable_dot_rendering
+        import graphviz
     except ImportError:
-        return None
+        # make a hacky white plot
+        x = np.ones((10, 10))
+        x[0, 0] = 0
+        return x
     dot_data = StringIO()
-    export_graphviz(tree, out_file=dot_data)
-    data = re.sub(r"gini = 0\.[0-9]+\\n", "", dot_data.getvalue())
+    export_graphviz(tree, out_file=dot_data, max_depth=3, impurity=False)
+    data = dot_data.getvalue()
+    #data = re.sub(r"gini = 0\.[0-9]+\\n", "", dot_data.getvalue())
     data = re.sub(r"samples = [0-9]+\\n", "", data)
     data = re.sub(r"\\nsamples = [0-9]+", "", data)
+    data = re.sub(r"value", "counts", data)
 
-    graph = pydot.graph_from_dot_data(data)
+    graph = graphviz.Source(data, format="png")
     if fout is None:
-        fout = "tmp.png"
-    graph.write_png(fout)
-    return imread(fout)
+        fout = "tmp"
+    graph.render(fout)
+    return imread(fout + ".png")
 
 
 def plot_tree(max_depth=1):
@@ -58,7 +61,7 @@ def plot_tree(max_depth=1):
         ax[0].set_title("max_depth = %d" % max_depth)
         img = tree_image(tree)
         if img is not None:
-            ax[1].imshow(i)
+            ax[1].imshow(img)
             ax[1].axis("off")
         else:
             ax[1].set_visible(False)

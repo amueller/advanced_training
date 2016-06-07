@@ -32,7 +32,7 @@ make sure everything runs under scikit-learn 0.17.1!!!
 01.3 : TODO
 
 2.1 : use different dataset
-2.2 : use different dataset - imbalanced data!  regression metrics?
+2.2 : regression metrics?
 
 
 GridSearchCV and metrics after models?!
@@ -44,12 +44,9 @@ GridSearchCV and metrics after models?!
 
 Use SVC less?
 
-5.4 rewrite with keras?
 7.1 write!!
 8.1 Write !!
 9.1 todo
-
-6.1 complete rewrite?!
 
 Outlier detection: time series!!
 
@@ -57,7 +54,12 @@ Urgent:
 ==========
 renumbering
 unsupervised learning
+GRADIENT BOOSTING
 GP
+5.3 not digits!!
 feature selection forward / backward
 Feature Union
 Stacking Classifier?
+get stuff from book into rf / tree chapter
+
+git grep digits?
