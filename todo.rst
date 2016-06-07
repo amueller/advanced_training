@@ -17,6 +17,7 @@ make exercises
 
 
 introduce datasets in beginning
+make sure everything runs under scikit-learn 0.17.1!!!
 
 
 1) select datasets
@@ -24,3 +25,29 @@ introduce datasets in beginning
 3) make sure everything is somewhat aligned, use other datasets
 4) flesh out from scratch parts
 5) exercises
+
+
+01.1 : intro multi-class data?
+01.2 : Add empirical risk minimization to 01.2, add overfitting / underfitting chart, elastic net?
+01.3 : TODO
+
+2.1 : use different dataset
+2.2 : use different dataset - imbalanced data!  regression metrics?
+
+
+GridSearchCV and metrics after models?!
+
+3.1 other data? other models?
+3.2 : add more feature selection!!
+
+4.1 other models and datasets?
+
+Use SVC less?
+
+5.4 rewrite with keras?
+7.1 write!!
+8.1 Write !!
+9.1 todo
+
+6.1 complete rewrite?!
+
