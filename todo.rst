@@ -51,3 +51,13 @@ Use SVC less?
 
 6.1 complete rewrite?!
 
+Outlier detection: time series!!
+
+Urgent:
+==========
+renumbering
+unsupervised learning
+GP
+feature selection forward / backward
+Feature Union
+Stacking Classifier?
