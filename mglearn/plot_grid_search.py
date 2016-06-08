@@ -1,7 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from sklearn.svm import SVC
-from sklearn.model_selection import GridSearchCV, train_test_split
+try:
+    from sklearn.model_selection import GridSearchCV, train_test_split
+except:
+    from sklearn.grid_search import GridSearchCV
+    from sklearn.cross_validation import train_test_split
 from sklearn.datasets import load_iris
 
 

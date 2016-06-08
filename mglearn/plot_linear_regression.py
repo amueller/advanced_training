@@ -2,7 +2,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 from sklearn.linear_model import LinearRegression
-from sklearn.model_selection import train_test_split
+try:
+    from sklearn.model_selection import train_test_split
+except:
+    from sklearn.cross_validation import train_test_split
 from .datasets import make_wave
 
 
