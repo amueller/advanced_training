@@ -52,14 +52,8 @@ Outlier detection: time series!!
 
 Urgent:
 ==========
-renumbering
-unsupervised learning
-GRADIENT BOOSTING
 GP
+renumbering
 5.3 not digits!!
 feature selection forward / backward
-Feature Union
-Stacking Classifier?
-get stuff from book into rf / tree chapter
-
-git grep digits?
+out of core learning: add diagram
